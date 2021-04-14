@@ -59,7 +59,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitRepositorySearchResponse>() { gitResponse }
+                items = new List<GitRepositorySearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitRepositorySearchResponse>>(GitSearchType.repositories, searchTerm, sort, order, perPage, pageNumber).Returns(response);
 
@@ -83,7 +87,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitCodeSearchResponse>() { gitResponse }
+                items = new List<GitCodeSearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCodeSearchResponse>>(GitSearchType.code, searchTerm + " org:github", sort, order, perPage, pageNumber).Returns(response);
 
@@ -107,7 +115,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitCommitSearchResponse>() { gitResponse }
+                items = new List<GitCommitSearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCommitSearchResponse>>(GitSearchType.commits, searchTerm, sort, order, perPage, pageNumber).Returns(response);
 
@@ -131,7 +143,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitIssueSearchResponse>() { gitResponse }
+                items = new List<GitIssueSearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitIssueSearchResponse>>(GitSearchType.issues, searchTerm, sort, order, perPage, pageNumber).Returns(response);
 
@@ -155,7 +171,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitTopicSearchResponse>() { gitResponse }
+                items = new List<GitTopicSearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitTopicSearchResponse>>(GitSearchType.topics, searchTerm, sort, order, perPage, pageNumber).Returns(response);
 
@@ -179,7 +199,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitUserSearchResponse>() { gitResponse }
+                items = new List<GitUserSearchResponse>() { gitResponse },
+                sort = sort,
+                order = order,
+                perPage = perPage,
+                pageNumber = pageNumber
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitUserSearchResponse>>(GitSearchType.users, searchTerm, sort, order, perPage, pageNumber).Returns(response);
 
@@ -203,7 +227,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitRepositorySearchResponse>() { gitRepoResponse }
+                items = new List<GitRepositorySearchResponse>() { gitRepoResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitRepositorySearchResponse>>(GitSearchType.repositories, searchTerm, null, null, 1, 1).Returns(RepoResponse);
 
@@ -215,7 +243,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitCodeSearchResponse>() { gitCodeResponse }
+                items = new List<GitCodeSearchResponse>() { gitCodeResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCodeSearchResponse>>(GitSearchType.code, searchTerm + " org:github", null, null, 1, 1).Returns(CodeResponse);
 
@@ -227,7 +259,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitCommitSearchResponse>() { gitCommitResponse }
+                items = new List<GitCommitSearchResponse>() { gitCommitResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCommitSearchResponse>>(GitSearchType.commits, searchTerm, null, null, 1, 1).Returns(CommitResponse);
 
@@ -239,7 +275,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitIssueSearchResponse>() { gitIssueResponse }
+                items = new List<GitIssueSearchResponse>() { gitIssueResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitIssueSearchResponse>>(GitSearchType.issues, searchTerm, null, null, 1, 1).Returns(IssueResponse);
 
@@ -251,7 +291,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitTopicSearchResponse>() { gitTopicResponse }
+                items = new List<GitTopicSearchResponse>() { gitTopicResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitTopicSearchResponse>>(GitSearchType.topics, searchTerm, null, null, 1, 1).Returns(TopicResponse);
 
@@ -263,7 +307,11 @@ namespace xUnitTest_AutoComplete.Services
             {
                 total_count = 1,
                 incomplete_results = false,
-                items = new List<GitUserSearchResponse>() { gitUserResponse }
+                items = new List<GitUserSearchResponse>() { gitUserResponse },
+                sort = null,
+                order = null,
+                perPage = 1,
+                pageNumber = 1
             };
             mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitUserSearchResponse>>(GitSearchType.users, searchTerm, null, null, 1, 1).Returns(UserResponse);
 
@@ -295,88 +343,6 @@ namespace xUnitTest_AutoComplete.Services
         public void GetInitialSearchResponse__returns_search_results_when_no_text_is_provided()
         {
             //Arrange
-            GitRepositorySearchResponse gitRepoResponse = new GitRepositorySearchResponse
-            {
-                id = 1
-            };
-            GitBaseResponse<GitRepositorySearchResponse> RepoResponse = new GitBaseResponse<GitRepositorySearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitRepositorySearchResponse>() { gitRepoResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitRepositorySearchResponse>>(GitSearchType.repositories, searchTerm, null, null, 1, 1).Returns(RepoResponse);
-
-            GitCodeSearchResponse gitCodeResponse = new GitCodeSearchResponse
-            {
-                name = "name"
-            };
-            GitBaseResponse<GitCodeSearchResponse> CodeResponse = new GitBaseResponse<GitCodeSearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitCodeSearchResponse>() { gitCodeResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCodeSearchResponse>>(GitSearchType.code, searchTerm + " org:github", null, null, 1, 1).Returns(CodeResponse);
-
-            GitCommitSearchResponse gitCommitResponse = new GitCommitSearchResponse
-            {
-                node_id = "node_id"
-            };
-            GitBaseResponse<GitCommitSearchResponse> CommitResponse = new GitBaseResponse<GitCommitSearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitCommitSearchResponse>() { gitCommitResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitCommitSearchResponse>>(GitSearchType.commits, searchTerm, null, null, 1, 1).Returns(CommitResponse);
-
-            GitIssueSearchResponse gitIssueResponse = new GitIssueSearchResponse
-            {
-                node_id = "node_id"
-            };
-            GitBaseResponse<GitIssueSearchResponse> IssueResponse = new GitBaseResponse<GitIssueSearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitIssueSearchResponse>() { gitIssueResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitIssueSearchResponse>>(GitSearchType.issues, searchTerm, null, null, 1, 1).Returns(IssueResponse);
-
-            GitTopicSearchResponse gitTopicResponse = new GitTopicSearchResponse
-            {
-                description = "description"
-            };
-            GitBaseResponse<GitTopicSearchResponse> TopicResponse = new GitBaseResponse<GitTopicSearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitTopicSearchResponse>() { gitTopicResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitTopicSearchResponse>>(GitSearchType.topics, searchTerm, null, null, 1, 1).Returns(TopicResponse);
-
-            GitUserSearchResponse gitUserResponse = new GitUserSearchResponse
-            {
-                id = 1
-            };
-            GitBaseResponse<GitUserSearchResponse> UserResponse = new GitBaseResponse<GitUserSearchResponse>
-            {
-                total_count = 1,
-                incomplete_results = false,
-                items = new List<GitUserSearchResponse>() { gitUserResponse }
-            };
-            mockGithubHttpClient.GetSearchResponse<GitBaseResponse<GitUserSearchResponse>>(GitSearchType.users, searchTerm, null, null, 1, 1).Returns(UserResponse);
-
-            AutoCompleteSearchResponse response = new AutoCompleteSearchResponse
-            {
-                search_term = searchTerm,
-                repository_search = RepoResponse,
-                code_search = CodeResponse,
-                commit_search = CommitResponse,
-                topic_search = TopicResponse,
-                issue_search = IssueResponse,
-                user_search = UserResponse
-            };
 
             //Act
             var result = subject.GetInitialResponse("");

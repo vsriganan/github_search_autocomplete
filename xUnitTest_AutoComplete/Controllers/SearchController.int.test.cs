@@ -50,6 +50,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]
@@ -66,6 +70,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]
@@ -82,6 +90,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]
@@ -98,6 +110,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]
@@ -114,6 +130,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]
@@ -130,6 +150,10 @@ namespace xUnitTest_AutoComplete.Controllers
             response.Should().NotBe("");
             objResponse.total_count.Should().BeGreaterThan(0);
             objResponse.items.Count().Should().BeGreaterThan(0);
+            objResponse.sort.Should().BeNull();
+            objResponse.order.Should().BeNull();
+            objResponse.perPage.Should().Be(10);
+            objResponse.pageNumber.Should().Be(1);
         }
 
         [Fact]

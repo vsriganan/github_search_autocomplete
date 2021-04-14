@@ -27,35 +27,41 @@ $('#clear').click(function () {
     clearContainer();
 });
 
-$('#searchText').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-        mainSearch();
-    }
-});
+//$('#searchText').keypress(function (event) {
+//    var keycode = (event.keyCode ? event.keyCode : event.which);
+//    if (keycode == '13') {
+//        mainSearch();
+//    }
+//});
 
 $('#repository-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/Repository?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Repository")
+    ajaxGET(e, 'https://localhost:44310/Search/Repository?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Repository", "Repository")
 });
 
 $('#code-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/Code?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Code")
+    ajaxGET(e, 'https://localhost:44310/Search/Code?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Code", "Code")
 });
 
 $('#commit-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/Commit?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Commit")
+    ajaxGET(e, 'https://localhost:44310/Search/Commit?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Commit", "Commit")
 });
 
 $('#issue-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/Issue?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Issue")
+    ajaxGET(e, 'https://localhost:44310/Search/Issue?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Issue", "Issue")
 });
 
 $('#topic-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/Topic?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Topic")
+    ajaxGET(e, 'https://localhost:44310/Search/Topic?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Topic", "Topic")
 });
 
 $('#user-li').click(function (e) {
-    ajaxGET(e, 'https://localhost:44310/Search/User?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/User")
+    ajaxGET(e, 'https://localhost:44310/Search/User?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/User", "User")
+});
+
+$('#qwerty').click(function (e) {
+    alert();
+    alert($(this).attr("search-type"))
+    //ajaxGET(e, 'https://localhost:44310/Search/Repository?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Repository", "Repository")
 });
 
 //#endregion
@@ -71,13 +77,15 @@ function resetCounts() {
 }
 
 function setActive(e) {
-    if (document.querySelector('#ul-list li.active') !== null) {
-        document.querySelector('#ul-list li.active').classList.remove('active');
+    if (e != null) {
+        if (document.querySelector('#ul-list li.active') !== null) {
+            document.querySelector('#ul-list li.active').classList.remove('active');
+        }
+        e.target.className += " active";
     }
-    e.target.className += " active";
 }
 
-function ajaxGET(e, ajaxURL, mvcView) {
+function ajaxGET(e, ajaxURL, mvcView, searchType) {
     if ($("#searchText").val() == "")
     {
         alert("Enter a Search Term!");
@@ -93,7 +101,7 @@ function ajaxGET(e, ajaxURL, mvcView) {
                 $("#view_display").load(mvcView, data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Some error occured!");
+                alert("Some error occured when getting data from " + searchType+ " API!");
             }
         });
     }    
@@ -132,7 +140,7 @@ function mainSearch() {
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("The API returned an Error! Please try again after sometime!");              
+                alert("The API returned an Error! Please try again after sometime!");
                 clearContainer();
             }
         });

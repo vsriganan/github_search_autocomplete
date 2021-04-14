@@ -20,7 +20,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitCodeSearchResponse>>(GitSearchType.code, searchTerm + " org:github", sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitCodeSearchResponse>>(GitSearchType.code, searchTerm + " org:github", sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch (InvalidOperationException ex)
             {
@@ -32,7 +38,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitCommitSearchResponse>>(GitSearchType.commits, searchTerm, sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitCommitSearchResponse>>(GitSearchType.commits, searchTerm, sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch (InvalidOperationException ex)
             {
@@ -71,7 +83,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitIssueSearchResponse>>(GitSearchType.issues, searchTerm, sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitIssueSearchResponse>>(GitSearchType.issues, searchTerm, sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch (InvalidOperationException ex)
             {
@@ -83,7 +101,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitRepositorySearchResponse>>(GitSearchType.repositories, searchTerm, sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitRepositorySearchResponse>>(GitSearchType.repositories, searchTerm, sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch(InvalidOperationException ex)
             {
@@ -95,7 +119,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitTopicSearchResponse>>(GitSearchType.topics, searchTerm, sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitTopicSearchResponse>>(GitSearchType.topics, searchTerm, sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch (InvalidOperationException ex)
             {
@@ -107,7 +137,13 @@ namespace AutoComplete_GitHub_SearchAPI.Services
         {
             try
             {
-                return await _githubClient.GetSearchResponse<GitBaseResponse<GitUserSearchResponse>>(GitSearchType.users, searchTerm, sort, order, perPage, pageNumber);
+                var response = await _githubClient.GetSearchResponse<GitBaseResponse<GitUserSearchResponse>>(GitSearchType.users, searchTerm, sort, order, perPage, pageNumber);
+                response.sort = sort;
+                response.order = order;
+                response.perPage = perPage;
+                response.pageNumber = pageNumber;
+
+                return response;
             }
             catch (InvalidOperationException ex)
             {

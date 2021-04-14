@@ -1,5 +1,16 @@
 ﻿@model GitBaseResponse<GitTopicSearchResponse>
 
+@{
+    var prevPage = (Model.pageNumber - 1) <= 0 ? 0 : Model.pageNumber - 1;
+    var nextPage = Model.pageNumber + 1;
+}
+
+<nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Topic Search</a>
+    </div>
+</nav>
+
 @foreach (var topic in Model.items.ToList())
 {
     <div class="card">
@@ -8,4 +19,22 @@
             <p class="h6 text-muted">@topic.description</p>
         </div>
     </div>
-};
+}
+
+<br />
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li onclick="previous()" search-type="Repository" page-number=@prevPage per-page=@Model.perPage sort=@Model.sort order=@Model.order class="page-item liPagePrev page-link cursor-pointer">Previous</li>
+        <li onclick="next()" search-type="Repository" page-number=@nextPage per-page=@Model.perPage sort=@Model.sort order=@Model.order class="page-item li-page-next page-link cursor-pointer">Next</li>
+    </ul>
+</nav>
+
+<script type="text/javascript">
+    function previous(e) {
+        ajaxGET(e, 'https://localhost:44310/Search/Topic?searchTerm=' + $("#searchText").val() + '&perPage=' + @Model.perPage + '&pageNumber=' + @prevPage, "/Home/Topic", "Topic")
+    }
+
+    function next(e) {
+        ajaxGET(e, 'https://localhost:44310/Search/Topic?searchTerm=' + $("#searchText").val() + '&perPage=' + @Model.perPage + '&pageNumber=' + @nextPage, "/Home/Topic", "Topic")
+    }
+</script>
