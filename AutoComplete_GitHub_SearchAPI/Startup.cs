@@ -1,3 +1,5 @@
+using AutoComplete_GitHub_SearchAPI.Interfaces;
+using AutoComplete_GitHub_SearchAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,8 +32,18 @@ namespace AutoComplete_GitHub_SearchAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AutoComplete_GitHub_SearchAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AutoComplete GitHub SearchAPI", Version = "v1" });
             });
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                                  {
+                                      builder.AllowAnyOrigin();
+                                  });
+            });
+
+            services.AddScoped<IGithubHttpClient, GithubHttpClient>();
+            services.AddScoped<ISearchService, SearchService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,12 +53,13 @@ namespace AutoComplete_GitHub_SearchAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AutoComplete_GitHub_SearchAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AutoComplete GitHub SearchAPI v1"));
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

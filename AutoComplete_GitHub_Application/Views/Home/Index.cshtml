@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3 class="display-6">Search in GitHub APIs</h3>
+    <div class="input-group mb-3">
+        <input id="searchText" type="text" class="form-control" placeholder="Search Term" aria-label="Search Term" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="search" class="btn btn-outline-secondary" type="button">Search</button>
+            <button id="clear" class="btn btn-outline-secondary" type="button">Clear</button>
+        </div>
+    </div>
+    <div id="search-results-container" class="container">
+        <div class="row">
+            <div class="col-3">
+                <ul id="ul-list" class="list-group">
+                    <li id="repository-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        Repository
+                        <span id="repository-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li id="code-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        Code
+                        <span id="code-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li id="commit-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        Commit
+                        <span id="commit-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li id="issue-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        Issue
+                        <span id="issue-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li id="topic-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        Topic
+                        <span id="topic-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li id="user-li" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                        User
+                        <span id="user-count" class="badge bg-primary rounded-pill"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-9">
+                <div id="view_display" class="col">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

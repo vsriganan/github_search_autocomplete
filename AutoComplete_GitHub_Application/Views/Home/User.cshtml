@@ -1,0 +1,15 @@
+﻿@model GitBaseResponse<GitUserSearchResponse>
+
+@foreach (var user in Model.items.ToList())
+{
+    var siteAdmin = user.site_admin ? "Yes" : "No";
+
+    <div class="card">
+        <div class="card-body">
+            <a href=@user.html_url target="_blank">@user.login </a>
+            <br />
+            <span class="badge badge-primary">User Type: @user.type</span> @*//Type*@
+            <span class="badge badge-primary">Site Admin: @siteAdmin</span> @*//SiteAdmin*@            
+        </div>
+    </div>
+};

@@ -1,0 +1,15 @@
+﻿@model GitBaseResponse<GitCodeSearchResponse>
+
+@foreach (var code in Model.items.ToList())
+{
+    <div class="card">
+        <div class="card-body">
+            <a href=@code.html_url target="_blank">@code.path </a>
+            <br />
+            <span class="badge badge-primary">Score: @code.score</span> @*//Score*@
+            <span class="badge badge-primary">Language: @code.repository.language</span> @*//Language*@
+            <br /><br />
+            <a href=@code.repository.html_url class="btn btn-secondary btn-sm btn-block" target="_blank">View Repository</a>
+        </div>
+    </div>
+};

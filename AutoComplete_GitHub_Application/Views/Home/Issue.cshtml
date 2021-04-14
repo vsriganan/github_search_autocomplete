@@ -1,0 +1,42 @@
+﻿@model GitBaseResponse<GitIssueSearchResponse>
+
+@foreach (var issue in Model.items.ToList())
+{
+    var lastUpdatedDate = issue.updated_at.HasValue ? issue.updated_at.Value.ToString("yyyy-MMM-dd") : "";
+    var createdDate = issue.created_at.HasValue ? issue.created_at.Value.ToString("yyyy-MMM-dd") : "";
+    var closedat = issue.closed_at.HasValue ? issue.closed_at.Value.ToString("yyyy-MMM-dd") : "";
+    var isPullRequest = issue.pull_request != null;
+
+    if (isPullRequest)
+    {
+        <div class="card">
+            <h6 class="card-header">PULL REQUEST</h6>
+            <div class="card-body">
+                <a href=@issue.html_url target="_blank">@issue.title </a>
+                <p class="h6 text-muted"><a href=@issue.user.html_url target="_blank">@issue.user.login </a></p>
+                <span class="badge badge-primary">State: @issue.state</span> @*//State*@
+                <span class="badge badge-primary">Comments: @issue.comments</span> @*//Comments*@
+                <span class="badge badge-primary">Created On: @createdDate</span> @*//CreatedAt*@
+                <span class="badge badge-primary">Updated On: @lastUpdatedDate</span> @*//UpdatedAt*@
+                <span class="badge badge-primary">Closed On: @closedat</span> @*//ClosedAt*@
+            </div>
+        </div>
+        <br />
+    }
+    else
+    {
+        <div class="card text-white bg-warning">
+            <h6 class="card-header">ISSUE</h6>
+            <div class="card-body">
+                <a href=@issue.html_url target="_blank">@issue.title </a>
+                <p class="h6 text-muted"><a href=@issue.user.html_url target="_blank">@issue.user.login </a></p>
+                <span class="badge badge-primary">State: @issue.state</span> @*//State*@
+                <span class="badge badge-primary">Comments: @issue.comments</span> @*//Comments*@
+                <span class="badge badge-primary">Created On: @createdDate</span> @*//CreatedAt*@
+                <span class="badge badge-primary">Updated On: @lastUpdatedDate</span> @*//UpdatedAt*@
+                <span class="badge badge-primary">Closed On: @closedat</span> @*//ClosedAt*@
+            </div>
+        </div>
+        <br />
+    }
+};

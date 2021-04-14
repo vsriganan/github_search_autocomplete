@@ -1,0 +1,18 @@
+﻿@model GitBaseResponse<GitRepositorySearchResponse>
+
+@foreach (var repo in Model.items.ToList())
+{
+    var lastUpdatedDate = repo.updated_at.HasValue ? repo.updated_at.Value.ToString("yyyy-MMM-dd") : "";
+
+    <div class="card">
+        <div class="card-body">
+            <a href=@repo.html_url target="_blank">@repo.full_name </a>
+            <p class="h6 text-muted">@repo.description</p>
+            <span class="badge badge-primary">Stars: @repo.stargazers_count</span> @*//Star*@
+            <span class="badge badge-primary">Language: @repo.language</span> @*//Language*@
+            <span class="badge badge-primary">Last Updated On: @lastUpdatedDate</span> @*//LastUpdated*@
+            <br /><br />
+            <a href=@repo.homepage class="btn btn-secondary btn-sm btn-block" target="_blank">View Homepage</a>
+        </div>
+    </div>
+};

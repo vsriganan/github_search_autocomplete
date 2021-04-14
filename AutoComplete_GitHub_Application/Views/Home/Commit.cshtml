@@ -1,0 +1,15 @@
+﻿@model GitBaseResponse<GitCommitSearchResponse>
+
+@foreach (var commit in Model.items.ToList())
+{
+    <div class="card">
+        <div class="card-body">
+            <a href=@commit.html_url target="_blank">@commit.repository.full_name </a>
+            <br />
+            <a href=@commit.author?.html_url target="_blank"><span class="badge badge-primary">Author: @commit.author?.login</span></a> @*//Author*@
+            <a href=@commit.committer?.html_url target="_blank"><span class="badge badge-primary">Commitor: @commit.committer?.login</span></a> @*//Commitor*@
+            <br /><br />
+            <a href=@commit.repository.html_url class="btn btn-secondary btn-sm btn-block" target="_blank">View Repository</a>
+        </div>
+    </div>
+};

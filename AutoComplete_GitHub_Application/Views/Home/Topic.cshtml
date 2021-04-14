@@ -1,0 +1,11 @@
+﻿@model GitBaseResponse<GitTopicSearchResponse>
+
+@foreach (var topic in Model.items.ToList())
+{
+    <div class="card">
+        <div class="card-body">
+            <a href=https://github.com/topics/@topic.name target="_blank">#@topic.name </a>
+            <p class="h6 text-muted">@topic.description</p>
+        </div>
+    </div>
+};
