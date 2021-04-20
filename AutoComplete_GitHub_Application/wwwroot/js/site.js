@@ -19,11 +19,11 @@ $(document).ready(function () {
 
 //#region Button Click Events
 
-$('#search').click(function () {
+$('#search').on('click', function () {
     mainSearch();
 });
 
-$('#clear').click(function () {
+$('#clear').on('click', function () {
     clearContainer();
 });
 
@@ -34,34 +34,28 @@ $('#clear').click(function () {
 //    }
 //});
 
-$('#repository-li').click(function (e) {
+$('#repository-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/Repository?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Repository", "Repository")
 });
 
-$('#code-li').click(function (e) {
+$('#code-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/Code?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Code", "Code")
 });
 
-$('#commit-li').click(function (e) {
+$('#commit-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/Commit?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Commit", "Commit")
 });
 
-$('#issue-li').click(function (e) {
+$('#issue-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/Issue?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Issue", "Issue")
 });
 
-$('#topic-li').click(function (e) {
+$('#topic-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/Topic?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Topic", "Topic")
 });
 
-$('#user-li').click(function (e) {
+$('#user-li').on('click', function (e) {
     ajaxGET(e, 'https://localhost:44310/Search/User?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/User", "User")
-});
-
-$('#qwerty').click(function (e) {
-    alert();
-    alert($(this).attr("search-type"))
-    //ajaxGET(e, 'https://localhost:44310/Search/Repository?searchTerm=' + $("#searchText").val() + '&perPage=10&pageNumber=1', "/Home/Repository", "Repository")
 });
 
 //#endregion
@@ -149,7 +143,7 @@ function mainSearch() {
 
 function clearContainer() {
     resetCounts(); //OnError set counter text to zero
-    $("#view_display").load('', '');
+    $("#view_display").empty();
     $("#search-results-container").hide();
 
     //Enable Search Text
